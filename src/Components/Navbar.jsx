@@ -29,6 +29,9 @@ export default function Navbar() {
                                     <Link to="/">
                                         <p className="logo-title"><span className='bg-secondary-subtle text-success'>Abhi</span><span className='text-light bg-success'>Kart</span></p>
                                     </Link>
+                                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
                                 </div>
                                 {/* <!-- logo --> */}
 
