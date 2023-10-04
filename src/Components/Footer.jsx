@@ -78,7 +78,7 @@ export default function Footer() {
         <div className="container text-center">
           <div className="row">
             <div className="col-lg-12 col-md-12">
-              <p>Copyrights &copy; 2023 - <a href="https://www.abhishekkakkar.co.in/">Abhishek Kakkar</a>,  All Rights Reserved.<br /></p>
+              <p>Copyrights &copy; 2023 - <a href="https://www.abhishekkakkar.in/">Abhishek Kakkar</a>,  All Rights Reserved.<br /></p>
                 <div className="social-icons">
                   <ul>
                     <li><a href="www.facebook.com" target="_blank"><i className="fab fa-facebook-f"></i></a></li>
