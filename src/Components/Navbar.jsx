@@ -1,90 +1,73 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-
 export default function Navbar() {
-    var navigate = useNavigate()
-    function logout() {
-        localStorage.clear()
-        navigate("/")
-    }
-    return (
-        <>
-            {/* <!--PreLoader--> */}
-            <div className="loader">
-                <div className="loader-inner">
-                    <div className="circle"></div>
-                </div>
-            </div>
-            {/* <!--PreLoader Ends--> */}
+  var navigate = useNavigate()
+  function logout() {
+    localStorage.clear()
+    navigate("/login")
+  }
+  return (
+    <>
+      {/* <!--PreLoader--> */}
+      <div className="loader">
+        <div className="loader-inner">
+          <div className="circle"></div>
+        </div>
+      </div>
+      {/* <!--PreLoader Ends--> */}
 
-            {/* <!-- header --> */}
-            <div className="top-header-area" id="sticker">
-                <div className="container">
-                    <div className="row fixed-top menu-bg">
-                        <div className="col-lg-12 col-sm-12 text-center">
-                            <div className="main-menu-wrap">
-                                {/* <!-- logo --> */}
-                                <div className="site-logo">
-                                    <Link to="/">
-                                        <p className="logo-title"><span className='bg-secondary-subtle text-success'>Abhi</span><span className='text-light bg-success'>Kart</span></p>
-                                    </Link>
-                                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <nav className="navbar navbar-expand-lg navbar-dark menu-bg fixed-top">
+        <Link to="/">
+          <p className="logo-title"><span className='bg-secondary-subtle text-primary'>Abhi</span><span className='text-light bg-success'>Kart</span></p>
+        </Link>
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-                                </div>
-                                {/* <!-- logo --> */}
 
-                                {/* <!-- menu start --> */}
-                                <nav className="main-menu">
-                                    <ul>
-                                        <li><Link to="/">Home</Link></li>
-                                        <li><Link to="/about ">About</Link></li>
-                                        <li><Link to="/shop/All/All/All">Shop</Link></li>
-                                        <li><Link to="/contact">Contact</Link></li>
-                                        <li><Link to="/admin">Profile</Link></li>
-
-                                        <li>
-                                            {
-                                                localStorage.getItem("login") ?
-                                                    <div className="header-icons">
-                                                        <ul>
-                                                            <li><Link to={
-                                                                localStorage.getItem("role") === "Admin" ? "/admin" : "/profile"
-                                                            }>{localStorage.getItem("name")}  ({localStorage.getItem("role")})</Link>
-                                                                <ul className="sub-menu">
-                                                                    <li>
-                                                                        {
-                                                                            localStorage.getItem("role") === "Admin" ?
-                                                                                <Link to="/admin">Profile</Link> : <Link to="/profile">Profile</Link>
-                                                                        }
-                                                                    </li>
-                                                                    {
-                                                                        localStorage.getItem("role") === "Buyer" ?
-                                                                            <><li><Link to="/cart">Cart</Link></li>
-                                                                                <li><Link to="/checkout">Check Out</Link></li></> : ""
-                                                                    }
-                                                                    <li><button className='btn' onClick={logout}>Logout</button></li>
-                                                                </ul>
-                                                            </li>
-                                                        </ul>
-                                                    </div> :
-                                                    <li><Link to="/login">Login</Link></li>
-
-                                            }
-                                        </li>
-                                    </ul>
-                                </nav>
-                                <Link className="mobile-show search-bar-icon" to="#"><i className="fas fa-search"></i></Link>
-                                <div className="mobile-menu"></div>
-                                {/* <!-- menu end --> */}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </>
-    )
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item active">
+              <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/about">About</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/shop/All/All/All">Shop</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/contact">Contact</Link>
+            </li>
+          </ul>
+          <ul className="nav">
+            {
+              localStorage.getItem("login") ?
+                <li className="nav-item dropdown float-end">
+                  <Link className="nav-link dropdown-toggle text-light" to="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {localStorage.getItem("name")} ({localStorage.getItem("role")})
+                  </Link>
+                  <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {
+                      localStorage.getItem("role") === "Admin" ?
+                        <Link className="dropdown-item" to="/admin">Profile</Link> :
+                        <>
+                          <Link className="dropdown-item" to="/profile">Profile</Link>
+                          <Link className="dropdown-item" to="/cart">Cart</Link>
+                          <Link className="dropdown-item" to="/checkout">Checkout</Link>
+                        </>
+                    }
+                    <div className="dropdown-divider"></div>
+                    <button className="dropdown-item" onClick={logout}>Logout</button>
+                  </div>
+                </li> :
+                <li className="nav-item">
+                  <Link className="nav-link text-light" to="/login">Login</Link>
+                </li>
+            }
+          </ul>
+        </div>
+      </nav>
+    </>
+  )
 }
-// <!-- end header -->
-
