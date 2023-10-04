@@ -84,12 +84,12 @@ export default function Home() {
                                 return <div key={index} className="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
                                     <div className="single-product-item">
                                         <div className="product-image">
-                                            <Link to={"/singleproduct/" + item.id}><img src={`/assets/products/${item.pic1}`} height="250px" alt="" /></Link>
+                                            <Link to={"/single-product/" + item.id}><img src={`/assets/products/${item.pic1}`} height="250px" alt="" /></Link>
                                         </div>
                                         <h3>{item.name}</h3>
                                         <h3><del className='text-decoration-strikethrough text-danger'>&#8377;{item.baseprice}</del>&#8377;{item.finalprice}</h3>
                                         <h3 className="text-success"> {item.discount} %Off </h3>
-                                        <Link to={"/singleproduct/" + item.id} className="cart-btn"><i className="fas fa-shopping-cart"></i> Add to Cart</Link>
+                                        <Link to={"/single-product/" + item.id} className="cart-btn"><i className="fas fa-shopping-cart"></i> Add to Cart</Link>
                                     </div>
                                 </div>
                             })

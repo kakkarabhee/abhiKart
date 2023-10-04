@@ -386,6 +386,19 @@
   "cart": [
     {
       "id": 0
+    },
+    {
+      "userid": "64bf898325af6f4186511cf9",
+      "productid": 13,
+      "name": "Male T-shirt Tommy Hilfiger",
+      "brand": "Tommy Hilfiger",
+      "color": "Blue",
+      "size": "L",
+      "pic": "p48.jpg",
+      "price": 6951,
+      "qty": 1,
+      "total": 6951,
+      "id": 1
     }
   ],
   "wishlist": [
